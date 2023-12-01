@@ -70,7 +70,9 @@ var LocalPackage = (function (_super) {
                             installError && installError(innerError);
                             return;
                         }
-                        zip.unzip(_this.localPath, unzipDir.toInternalURL(), newPackageUnzipped);
+                        CodePushUtil.logMessage("Unzipping dir from: " + _this.localPath + " \r\n to: "+ unzipDir.nativeURL);
+                        // zip.unzip(_this.localPath, unzipDir.toInternalURL(), newPackageUnzipped);
+                        zip.unzip(_this.localPath, unzipDir.nativeURL, newPackageUnzipped);
                     });
                 };
                 if (!error && !!directoryEntry) {
